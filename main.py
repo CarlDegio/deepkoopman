@@ -2,8 +2,8 @@ import numpy as np
 import deep_util
 from nonlinear_system import VanderPolEnv, MassDampSpringEnv, RewardEnv, rollout
 
-env = VanderPolEnv()
-
+env = VanderPolEnv(mu=1)
+# env=RewardEnv()
 
 def collect_data(replay_buffer: deep_util.ReplayBuffer):
     def random_policy(state):

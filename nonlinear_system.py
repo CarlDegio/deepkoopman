@@ -77,7 +77,7 @@ class MassDampSpringEnv(NonLinearEnv):
 
 
 class RewardEnv(NonLinearEnv):
-    def __init__(self, state_dim, action_dim, state0=np.zeros(2), dt=0.1):
+    def __init__(self, state_dim=2, action_dim=1, state0=np.zeros(2), dt=0.1):
         super().__init__(state_dim, action_dim, state0, dt)
 
     def step(self, u):

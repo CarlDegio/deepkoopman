@@ -142,7 +142,7 @@ class TrainThread:
             plt.show()
         return np.mean(np.abs(state_pred.numpy() - states))
 
-    def run(self, batch_size=100, epoch=2000):
+    def run(self, batch_size=100, epoch=1000):
         error = []
         for i in range(epoch):
             batch = self.buffer.sample(batch_size)
@@ -150,9 +150,9 @@ class TrainThread:
             if i % 1 == 0:
                 self.solve_koopman_kl()
 
-            if i % 50 == 0:
+            if i % 1 == 0:
                 total_error = 0
-                eval_num = 5
+                eval_num = 1
                 for _ in range(eval_num):
                     total_error += self.test_error(render=False)
                 error.append(total_error / eval_num)
